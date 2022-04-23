@@ -3,5 +3,21 @@
 {% block title %} Tech World | Home {% endblock %}
 
 {% block content %}
-<h1>Home</h1>
+
+<div class="container text-center mt-3 mb-5"><h1 >Latest Posts</h1></div>
+
+<div class="conteiner">
+    <div class="col-12 ">
+        {% for post in posts %}
+        <h1>{{ post.title}}</h1>
+        <p>{{ post.body}}</p>
+        <a class="btn btn-primary" href="#">Read More</a>
+        <span class="line"></span>
+    </div>
+</div>
+
+{% endfor%}
+   
+    
+
 {% endblock %}
