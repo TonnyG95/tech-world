@@ -21,14 +21,14 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="about" class="nav-item nav-link">About</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
                     <div class="nav-item dropdown">
                         
                     </div>
                 </div>
-                <form class="d-flex">
+                <form method="get" action="{% url 'search' %}" class="d-flex">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" name="query" placeholder="Search">
                         <button type="button" class="btn btn-secondary">Search</button>
                     </div>
                 </form>
