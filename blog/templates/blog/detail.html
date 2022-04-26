@@ -30,14 +30,11 @@
 
 
         {% for comment in post.comments.all %}
-        <article class="container text-center">
-            <div class="container">
-                <strong>{{ comment.name }}</strong> <small> {{ comment.created_at|timesince }} ago</small> <br>
-
+        <article class="media box">
+            <div class="media-content">
+                <strong>{{ comment.name }}</strong> <small>{{ comment.created_at|timesince }} ago</small><br>
+                {{ comment.body }}
             </div>
-
-            <p class="container"> {{ comment.body }}</p>
-
         </article>
         {% endfor %}
 

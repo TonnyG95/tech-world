@@ -7,7 +7,7 @@ def detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
 
     if request.method == 'POST':
-        form = CommentForm()
+        form = CommentForm(request.POST)
 
         if form.is_valid():
             comment = form.save(commit=False)
@@ -18,5 +18,4 @@ def detail(request, slug):
     else:
         form = CommentForm()
 
-
-    return render(request, 'blog/detail.html', {'post': post, 'form': form } )
+    return render(request, 'blog/detail.html', {'post': post, 'form': form})
