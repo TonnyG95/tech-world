@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+
+{% block title %} {{ post.title }} | Tech World {% endblock title %}
+
+
+{% block content %}
+
+<section class="conteiner">
+
+<div class="conteiner">
+    <div class="col-12 ">
+       
+        <h1>{{ post.title}}</h1>
+        <p><strong>{{ post.intro}}</strong></p>
+        <p>{{ post.body}}</p>
+       
+        <p>{{ post.created_at|date:'d-m-y H:i' }}</p>
+        <hr>
+
+        <div class="container">
+        <h2 class="conteiner">Comments</h2>
+        <form method="post" action="">
+            {% csrf_token %} 
+            {{ form.as_p }}
+            <div class="field">
+                <button class="btn btn-primary" type="submit">Submit Comment</button>
+                <p>{{ comment.body}}</p>
+            </div>
+        </form>
+
+
+        {% for comment in post.comments.all %}
+        <article class="container text-center">
+            <div class="container">
+                <strong>{{ comment.name }}</strong> <small> {{ comment.created_at|timesince }} ago</small> <br>
+
+            </div>
+
+            <p class="container"> {{ comment.body }}</p>
+
+        </article>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+</section>
+{% endblock %}
+

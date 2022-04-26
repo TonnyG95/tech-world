@@ -6,17 +6,23 @@
 
 <div class="container text-center mt-3 mb-5"><h1 >Latest Posts</h1></div>
 
+<!--Post lists-->
+
 <div class="conteiner">
     <div class="col-12 ">
         {% for post in posts %}
         <h1>{{ post.title}}</h1>
-        <p>{{ post.body}}</p>
-        <a class="btn btn-primary" href="#">Read More</a>
-        <span class="line"></span>
+        <p>{{ post.intro}}</p>
+        <a class="btn btn-primary" href="{% url 'post_detail' post.slug %}">More</a>
+        <p>{{ post.created_at|date:'d-m-y H:i' }}</p>
+        <hr>
+        {% endfor%}
     </div>
 </div>
 
-{% endfor%}
+<!--Post lists-->
+
+
    
     
 
