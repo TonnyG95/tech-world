@@ -1,16 +1,16 @@
 {% extends 'core/about.html' %}
 
-{% block title %} Tech World | Home {% endblock %}
+{% block title %} {{ category.title }} | Tech World {% endblock %} 
 
 {% block content %}
 
-<div class="container text-center mt-3 mb-5"><h1 >Latest Posts</h1></div>
+<div class="container text-center mt-3 mb-5"><h1 >Posts in  {{ category.title }} category </h1></div>
 
 <!--Post lists-->
 
 <div class="conteiner">
     <div class="col-12 ">
-        {% for post in posts %}
+        {% for post in category.posts.all %}
         <h1>{{ post.title}}</h1>
         <p>{{ post.intro}}</p>
         <a class="btn btn-primary" href="{% url 'post_detail' post.category.slug post.slug %}">More</a>

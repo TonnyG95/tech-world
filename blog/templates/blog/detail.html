@@ -11,6 +11,9 @@
     <div class="col-12 ">
        
         <h1>{{ post.title}}</h1>
+
+        <p><small>Category: <a href="{% url 'category_detail' post.category.slug %}">{{ post.category }}</a></small></p>
+
         <p><strong>{{ post.intro}}</strong></p>
         <p>{{ post.body}}</p>
        
@@ -44,4 +47,3 @@
 
 </section>
 {% endblock %}
-
